@@ -21,18 +21,6 @@ This project demonstrates a fully automated CI/CD pipeline using Jenkins and Doc
 4. **Build Docker Image:** Remotely builds the Docker image and tags it properly.
 5. **Deploy as Container:** Runs the new Docker container and checks if it's running properly.
 
-## Jenkins Pipeline Script
-![Pipeline Script Image](script.png)
-## Visual Pipeline Examples
-
-- **Stage View (Successful & Failed Builds):**
-
-![Stage View](stage.png)
-
-- **Build Graph (All Stages Passing):**
-
-![Build Graph](Stages.png)
-
 ## Usage
 
 1. Clone this repository:
