@@ -5,16 +5,19 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Test Completed'
+                echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
             }
         }
         stage('Stage') {
             steps {
                 echo 'Staging Completed'
+                echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
             }
         }
         stage('Prod') {
             steps {
                 echo 'Production Completed'
+                echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
             }
         }
     }
