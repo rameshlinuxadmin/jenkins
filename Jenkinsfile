@@ -10,5 +10,18 @@ pipeline {
                 echo 'Image Build Completed'
                 }
             }
+        stage('Stage') {
+            steps {
+               sh 'ssh root@172.25.250.11 "cat /opt/docker/Dockerfile"'
+               echo 'Staging Completed'
+               echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
+            }
+       }
+        stage('Prod') {
+            steps {                
+               echo 'Production Completed'
+               echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
+            }
+        }
     }
 }
