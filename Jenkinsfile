@@ -8,6 +8,7 @@ pipeline {
                 echo "Listing Jenkins environment variables:"
                 env.each { key, value ->
                   echo "${key} = ${value}"
+                }
             }
         }
         stage('Stage') {
