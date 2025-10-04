@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     stages {
-        stage('Test') {
+        stage('Copy the rquiref files from Github to jenkins server') {
             agent { label 'jenkins'}
             steps {
                 sh 'rsync -a /var/lib/jenkins/workspace/demo/ root@172.25.250.11:/opt/docker'
@@ -10,16 +10,17 @@ pipeline {
                 echo 'Image Build Completed'
                 }
             }
-        stage('Stage') {
+        stage('Building the docker image') {
             steps {
                sh 'ssh root@172.25.250.11 "cd /opt/docker; docker build -t web:v2 ."'
-               sh 'ssh root@172.25.250.11 "docker run -itd -p 82:80 --name web web:v2"'
-               echo 'Staging Completed'
+               echo 'Image building has been Completed'
                echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
             }
        }
-        stage('Prod') {
+        stage('Deploy as a container') {
             steps {                
+               sh 'ssh root@172.25.250.11 "docker run -itd -p 82:80 --name web web:v2"'
+               sh 'ssh root@172.25.250.11 "curl -I http://172.25.250.11:82"'
                echo 'Production Completed'
                echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
             }
