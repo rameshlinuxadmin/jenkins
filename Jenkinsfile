@@ -4,12 +4,8 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-                script {
-                    echo 'Test Completed'
-                    echo "Listing Jenkins environment variables:"
-                    env.each { key, value ->
-                      echo "${key} = ${value}"
-                    }
+                echo 'Testing Completed'
+                echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"                   
                 }
             }
         }
