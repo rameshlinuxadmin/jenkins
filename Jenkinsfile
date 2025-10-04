@@ -13,7 +13,7 @@ pipeline {
         stage('Stage') {
             steps {
                sh 'ssh root@172.25.250.11 "cd /opt/docker; docker build -t web:v2 ."'
-               sh 'ssh root@172.25.250.11 "docker run -itd -p 80:82 --name web web:v2"'
+               sh 'ssh root@172.25.250.11 "docker run -itd -p 82:80 --name web web:v2"'
                echo 'Staging Completed'
                echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
             }
