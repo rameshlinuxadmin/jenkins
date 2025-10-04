@@ -8,7 +8,6 @@ pipeline {
                 echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"                   
                 }
             }
-        }
         stage('Stage') {
             steps {
                 echo 'Staging Completed'
