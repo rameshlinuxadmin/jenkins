@@ -12,7 +12,7 @@ pipeline {
             }
         stage('removing the old docker container') {
             steps {
-               sh 'ssh root@172.25.250.11 "docker container rm -f $(docker ps -aq)"'
+               sh 'ssh root@172.25.250.11 "docker ps -aq | xargs -r docker rm -f"'
                echo 'Old containers removed'
                echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
             }
