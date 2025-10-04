@@ -10,21 +10,5 @@ pipeline {
                 echo 'Image Build Completed'
                 }
             }
-        stage('Stage') {
-            agent { label 'docker'}
-            steps {                
-                sh 'cd /opt/docker'
-                sh 'cat /opt/docker/Dockerfile'
-                
-                echo 'Staging Completed'
-                echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
-            }
-        }
-        stage('Prod') {
-            steps {
-                echo 'Production Completed'
-                echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
-            }
-        }
     }
 }
