@@ -4,6 +4,7 @@ pipeline {
     stages {
         stage('Test') {
             steps {
+                docker build -t web:${env.BUILD_ID} .
                 echo 'Testing Completed'
                 echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"                   
                 }
