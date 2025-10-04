@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-                rsync -a /var/lib/jenkins/workspace/demo/ root@serverb:/opt/docker
+                rsync -a /var/lib/jenkins/workspace/demo/ docker:/opt/docker
                 echo "Running Build ${env.BUILD_ID} on ${env.JENKINS_URL}"  
                 echo 'Image Build Completed'
                 }
