@@ -12,8 +12,8 @@ pipeline {
         stage('Stage') {
             agent { label 'docker'}
             steps {                
-                cd /opt/docker
-                cat /opt/docker/Dockerfile
+                sh 'cd /opt/docker'
+                sh 'cat /opt/docker/Dockerfile'
                 
                 echo 'Staging Completed'
                 echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
