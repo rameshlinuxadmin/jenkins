@@ -4,13 +4,17 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-                docker build -t web:${env.BUILD_ID} .
-                echo 'Testing Completed'
-                echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"                   
+                rsync -a /var/lib/jenkins/workspace/demo/ root@serverb:/opt/docker
+                echo "Running Build ${env.BUILD_ID} on ${env.JENKINS_URL}"  
+                echo 'Image Build Completed'
                 }
             }
         stage('Stage') {
-            steps {
+            agent { label 'docker'}
+            steps {                
+                cd /opt/docker
+                cat /opt/docker/Dockerfile
+                
                 echo 'Staging Completed'
                 echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
             }
