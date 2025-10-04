@@ -22,16 +22,16 @@ This project demonstrates a fully automated CI/CD pipeline using Jenkins and Doc
 5. **Deploy as Container:** Runs the new Docker container and checks if it's running properly.
 
 ## Jenkins Pipeline Script
-![Pipeline Script Image](img/script.png)
+![Pipeline Script Image](script.png)
 ## Visual Pipeline Examples
 
 - **Stage View (Successful & Failed Builds):**
 
-![Stage View](img/stage.png)
+![Stage View](stage.png)
 
 - **Build Graph (All Stages Passing):**
 
-![Build Graph](img/stages.png)
+![Build Graph](Stages.png)
 
 ## Usage
 
