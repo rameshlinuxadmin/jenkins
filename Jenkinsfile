@@ -8,7 +8,7 @@ pipeline {
                 sh 'sudo docker ps -aq | xargs -r sudo docker rm -f'
                 sh 'cd /opt/docker; sudo docker build -t web:v2 .'
                 sh 'sudo docker run -d -p 82:80 --name web web:v2'
-                echo 'Image Build Completed'
+                echo 'Build Completed'
                 }
             }
     }
