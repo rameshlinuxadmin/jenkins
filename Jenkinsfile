@@ -33,7 +33,7 @@ pipeline {
             }
             steps {
                 sh '''
-                    docker build -t zudio:pr-${BUILD_NUMBER} .
+                    sudo docker build -t zudio:pr-${BUILD_NUMBER} .
                 '''
             }
         }
