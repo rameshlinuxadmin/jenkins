@@ -13,6 +13,7 @@ pipeline {
             steps {
                 sh '''
                     echo "Building application..."
+                    whoami
                     # ./mvnw clean package
                 '''
             }
